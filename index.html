@@ -291,7 +291,13 @@
             }
         }
 
-        // 修改這裡：在點擊按鈕時執行下載邏輯
+        // 新增的專用下載函式
+        function downloadGame() {
+            // 直接指定同資料夾下的檔案名稱
+            window.location.href = "111.exe";
+        }
+
+        // 在點擊按鈕時執行下載邏輯
         document.getElementById('downloadBtn').addEventListener('click', function(e) {
             e.preventDefault();
             
@@ -314,10 +320,10 @@
             feedback.innerText = '正在準備下載專案內容...';
             document.body.appendChild(feedback);
             
-            // 延遲 1 秒後移除提示框，並觸發 111.exe 的下載
+            // 延遲 1 秒後移除提示框，並呼叫 downloadGame 函式進行下載
             setTimeout(() => {
                 feedback.remove();
-                window.location.href = "111.exe";
+                downloadGame();
             }, 1000);
         });
 
